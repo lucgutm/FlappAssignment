@@ -1,8 +1,7 @@
-import { createEffect } from "solid-js";
 import { storedCart } from "../utils/store";
 
 export default function EmptyCart() {
-  const [cart, setCart] = storedCart;
+  const [, setCart] = storedCart;
 
   return (
     <>

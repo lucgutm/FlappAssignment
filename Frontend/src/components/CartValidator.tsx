@@ -1,4 +1,4 @@
-import { createSignal, Show, For } from "solid-js";
+import { createSignal, Show } from "solid-js";
 import { storedCart } from "../utils/store";
 
 export default function CartValidator() {
@@ -17,18 +17,20 @@ export default function CartValidator() {
         discount: item.discountPercentage
       };
     });
-    const response = await fetch('http://127.0.0.1:5000/api/cart', {
+    const response = await fetch('https://flapp-validate-cart-426mr3fpua-ue.a.run.app/api/cart', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(cartBody)
     });
-
-    const valid = await response.json(); // boolean
-    setFirstRender(false);
-    setCartValid(valid);
-    setLoading(false);
+    response.json()
+    .then(data => setCartValid(data))
+    .catch(err => console.error(err))
+    .finally(() => {
+      setLoading(false);
+      setFirstRender(false);
+    });
   }
 
   return (
@@ -43,7 +45,7 @@ export default function CartValidator() {
               <Show when={loading()}>
                 Cargando...
               </Show>
-              <Show when={!firstRender()}>
+              <Show when={!firstRender() && !loading()}>
                 <Show when={cartValid()} fallback="No hay envíos disponibles :(">
                   Envío Nomad ⚡ - $3670
                 </Show>

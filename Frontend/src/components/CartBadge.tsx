@@ -1,4 +1,4 @@
-import { createSignal, createEffect, Show, For } from "solid-js";
+import { Show } from "solid-js";
 import { storedCart } from "../utils/store";
 
 export default function CartBadge() {
