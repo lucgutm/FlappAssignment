@@ -47,7 +47,7 @@ export default function CartValidator() {
               </Show>
               <Show when={!firstRender() && !loading()}>
                 <Show when={cartValid()} fallback="No hay envíos disponibles :(">
-                  Envío Nomad ⚡ - $3670
+                  Envío Flapp ⚡ - $3670
                 </Show>
               </Show>
             </span>
