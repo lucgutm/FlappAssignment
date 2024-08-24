@@ -1,0 +1,41 @@
+---
+import Layout from "../layouts/Layout.astro";
+import CartList from "../components/CartList.tsx";
+import CartValidator from "../components/CartValidator.tsx";
+import EmptyCart from "../components/EmptyCart.tsx";
+---
+
+<Layout title="Carrito">
+  <main class="container mx-auto">
+    <h2 class="text-3xl p-4 text-center">Checkout</h2>
+
+    <div class="flex flex-row gap-4">
+      <div class="flex flex-col text-center basis-1/2 gap-4">
+        <nav class="flex justify-between">
+          <a
+            href="/"
+            class="bg-[#0056b8] hover:bg-blue-700 text-white font-bold rounded-md p-2"
+          >
+            Volver
+          </a>
+          <EmptyCart client:only="solid-js" />
+        </nav>
+        <div
+          class="flex flex-col text-start bg-gray-200 rounded-md p-4 border-4 gap-4"
+        >
+          <h3 class="text-2xl">Tu compra</h3>
+          <CartList client:only="solid-js" />
+        </div>
+      </div>
+
+      <div
+        class="flex flex-col text-start basis-1/2 bg-gray-200 rounded-md p-4 border-4 gap-4"
+      >
+        <h3 class="text-2xl">Resumen de la compra</h3>
+        <CartValidator client:only="solid-js" />
+      </div>
+    </div>
+    <!-- espacio en blanco -->
+    <div class="h-32"></div>
+  </main>
+</Layout>

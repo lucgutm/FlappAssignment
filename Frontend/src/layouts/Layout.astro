@@ -1,0 +1,58 @@
+---
+import CartBadge from "../components/CartBadge";
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header class="sticky top-0 bg-white shadow-md">
+      <nav class="flex text-center container mx-auto items-center gap-2 py-2.5 sticky">
+        <a href="/" class="relative font-bold text-blue inline-block">
+          <img
+            src="https://flapp-clients-platform-assets.s3.amazonaws.com/img/FlappLogoBlue.png"
+            alt="Flapp Logo"
+            class="h-8"
+          />
+        </a>
+        <div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="size-6 inline-block space-x-2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+          </svg>
+          Categorías
+        </div>
+        <div class="grow rounded-lg bg-gray-100 p-1">
+          <p>search bar</p>
+        </div>
+        <a href="/checkout"
+          class="bg-[#0056b8] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md"
+        >
+          <CartBadge client:only="solid-js" />
+        </a>
+      </nav>
+    </header>
+    <slot />
+  </body>
+</html>

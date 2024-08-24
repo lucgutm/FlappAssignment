@@ -1,0 +1,39 @@
+---
+import FetchCart from "../components/FetchCart.tsx";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Home">
+	<main class="items-center justify-center">
+		<div class="bg-gray-200 rounded-lg m-4 text-center h-64 content-center">
+			Caroussel con promociones
+		</div>
+		<div class="flex flex-wrap justify-center gap-4">
+			<FetchCart client:only="solid-js" />
+			<a href="/checkout" class="bg-[#0056b8] hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+				Finalizar compra
+			</a>
+		</div>
+		<div class="grid grid-cols-4 gap-4 m-4 text-center">
+			<div class="bg-gray-200 rounded h-16 content-center">Artículo</div>
+			<div class="bg-gray-200 rounded h-16 content-center">Artículo</div>
+			<div class="bg-gray-200 rounded h-16 content-center">Artículo</div>
+			<div class="bg-gray-200 rounded h-16 content-center">Artículo</div>
+			<div class="bg-gray-200 rounded h-16 content-center">Artículo</div>
+			<div class="bg-gray-200 rounded h-16 content-center">Artículo</div>
+			<div class="bg-gray-200 rounded h-16 content-center">Artículo</div>
+		</div>
+		<div>
+			<h2 class="text-3xl p-4 text-center">Productos destacados</h2>
+			<div class="grid grid-cols-2 gap-4 m-4 text-center basis-1/2">
+				<div class="bg-gray-200 rounded h-64 content-center">Artículo</div>
+				<div class="bg-gray-200 rounded h-64 content-center">Artículo</div>
+				<div class="bg-gray-200 rounded h-64 content-center">Artículo</div>
+				<div class="bg-gray-200 rounded h-64 content-center">Artículo</div>
+				<div class="bg-gray-200 rounded h-64 content-center">Artículo</div>
+				<div class="bg-gray-200 rounded h-64 content-center">Artículo</div>
+				<div class="bg-gray-200 rounded h-64 content-center">Artículo</div>
+			</div>
+		</div>
+	</main>
+</Layout>
